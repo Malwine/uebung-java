@@ -23,6 +23,7 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 	private JButton calculate;
 	private JPanel buttonPanel;
 	private JButton exit;
+	private JTextArea textArea;
 
 	/**
 	 * Constructor for the GUI
@@ -106,7 +107,7 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 	}
 	
 	private JScrollPane initRechterScrollPane() {
-		JTextArea textArea = new JTextArea(12,20);
+		textArea = new JTextArea(12,20);
 		JScrollPane pane = new JScrollPane(textArea);
 		return pane;
 	}
@@ -125,7 +126,7 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 		}
 		
 		if (e.getActionCommand() == "Berechnen"){
-			
+			textArea.setText(null);
 		}
 		
 	}
