@@ -92,13 +92,13 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 	
 	private JPanel initButtonPanel(){
 		JPanel panel = new JPanel();
-		
 		panel.setLayout(new FlowLayout());
 		
 		calculate = new JButton("Berechnen");
+		calculate.addActionListener(this);
 		panel.add(calculate);
 		
-		exit = new JButton("Berechnen");
+		exit = new JButton("Beenden");
 		exit.addActionListener(this);
 		panel.add(exit);
 		
@@ -114,19 +114,19 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		
-		Object source = e.getSource();
-		
-		if (source instanceof JButton){
-			
+		if (e.getActionCommand() == "Beenden"){
 			int n = JOptionPane.showConfirmDialog(this,"Willst du abbrechen?","Abbrechen", JOptionPane.YES_NO_OPTION);
 			
 			if(n == JOptionPane.YES_OPTION){
-				
 				this.setVisible(false);
 				this.dispose();
 				System.exit(0);	
 			}
-		}		
+		}
+		
+		if (e.getActionCommand() == "Berechnen"){
+			
+		}
 		
 	}
 }
