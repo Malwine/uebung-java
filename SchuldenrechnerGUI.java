@@ -73,7 +73,8 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 		label2 = new JLabel("Laufzeit");
 		panel.add(label2);
 		
-		combo1 = new JComboBox();
+		String[] monate = { "6", "12", "18", "24" };
+		combo1 = new JComboBox(monate);
 		panel.add(combo1);
 		
 		seperator2 = new JSeparator();
@@ -127,8 +128,13 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 		
 		if (e.getActionCommand() == "Berechnen"){
 			textArea.setText(null);
+			float summe = 0;
+
 			try {
-				int betrag = Integer.parseInt(textfield1.getText());
+				summe = Float.parseFloat(textfield1.getText());
+				int laufzeit = Integer.parseInt(combo1.getSelectedItem().toString());
+
+				Schuldbetrag s1 = new Schuldbetrag(summe, laufzeit);
 			}
 			catch (NumberFormatException num) {
 				System.out.println(num);
