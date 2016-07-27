@@ -1,5 +1,6 @@
 package klausur_2016;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Schuldbetrag {
@@ -23,7 +24,12 @@ public class Schuldbetrag {
 	}
 
 	List<Float> getRaten() {
-		// TODO
-		return null;
+		List<Float> raten =  new ArrayList<Float> ();
+
+		for (int i = 0; i < laufzeit; i++){
+			raten.add(summe/laufzeit);
+		}
+
+		return raten;
 	}
 }

@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ListIterator;
 
 import javax.swing.*;
 
@@ -73,8 +74,8 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 		label2 = new JLabel("Laufzeit");
 		panel.add(label2);
 		
-		String[] monate = { "6", "12", "18", "24" };
-		combo1 = new JComboBox(monate);
+		String[] laufzeiten = { "6", "12", "18", "24" };
+		combo1 = new JComboBox(laufzeiten);
 		panel.add(combo1);
 		
 		seperator2 = new JSeparator();
@@ -83,7 +84,8 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 		label2 = new JLabel("Startmonat");
 		panel.add(label2);
 		
-		combo2 = new JComboBox();
+		String[] monate = { "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember" };
+		combo2 = new JComboBox(monate);
 		panel.add(combo2);
 		
 		buttonPanel = initButtonPanel();
@@ -135,6 +137,12 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 				int laufzeit = Integer.parseInt(combo1.getSelectedItem().toString());
 
 				Schuldbetrag s1 = new Schuldbetrag(summe, laufzeit);
+
+				ListIterator<Float> iterator = s1.getRaten().listIterator();
+			    while(iterator.hasNext()){
+			    	textArea.append(combo2.getSelectedItem().toString() + " " + iterator.next().toString() + "\n");
+			    }
+
 			}
 			catch (NumberFormatException num) {
 				System.out.println(num);
