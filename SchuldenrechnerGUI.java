@@ -4,10 +4,12 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
-public class SchuldenrechnerGUI extends JFrame {
+public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 	
 	JPanel mainPanel;
 	JPanel linkesPanel;
@@ -106,5 +108,11 @@ public class SchuldenrechnerGUI extends JFrame {
 		JTextArea textArea = new JTextArea(12,20);
 		JScrollPane pane = new JScrollPane(textArea);
 		return pane;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 }
