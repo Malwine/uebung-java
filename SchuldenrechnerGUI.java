@@ -127,6 +127,14 @@ public class SchuldenrechnerGUI extends JFrame implements ActionListener {
 		
 		if (e.getActionCommand() == "Berechnen"){
 			textArea.setText(null);
+			try {
+				int betrag = Integer.parseInt(textfield1.getText());
+			}
+			catch (NumberFormatException num) {
+				System.out.println(num);
+				int n = JOptionPane.showConfirmDialog(this,"Du musst eine Zahl eingeben!", (textfield1.getText() + " ist keine Zahl"), JOptionPane.CLOSED_OPTION);
+				textfield1.setText(null);
+			}
 		}
 		
 	}
